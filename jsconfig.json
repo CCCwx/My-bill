@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    // 告诉 VSCode 如何解析路径别名
+    "paths": {
+      // 将 '@/*' 映射到 'src/*'
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*"]
+}
