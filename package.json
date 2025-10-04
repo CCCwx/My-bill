@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "server": "json-server ./server/data.json --port 8888", 
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
@@ -15,6 +16,7 @@
     "axios": "^1.12.2",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.18",
+    "json-server": "^1.0.0-beta.3",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-redux": "^9.2.0",
