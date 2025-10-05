@@ -7,7 +7,7 @@ import { getBillList } from '@/store/modules/billstore';
 const Layout = () =>{
     const dispatch = useDispatch()
     useEffect(()=>{
-        dispatch(getBillList)
+        dispatch(getBillList())
     }, [dispatch])
     return (
         <div>
