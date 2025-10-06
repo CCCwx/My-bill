@@ -3,15 +3,28 @@ import { NavBar, DatePicker } from 'antd-mobile'
 import './index.scss'
 import { useState } from 'react'
 import classNames from 'classnames'
-import { data } from 'react-router-dom'
+//import { data } from 'react-router-dom'
 import dayjs from 'dayjs'
-
+import { useSelector } from 'react-redux'
+import { useMemo } from 'react'
+import _ from 'lodash'
 const Month = () => {
+  //按月做数据的分组
+  //从redux拿到数据
+  const billList = useSelector(state => state.bill.billList)
+  //useMemo对数据二次处理
+  const monthGroup = useMemo(()=>{
+    //return出去计算出去的数值
+    return _.groupBy(billList, (item) => dayjs(item.date).format('YYYY-MM'))
+  }, [billList])
+  //console.log(monthGroup)
+
   //要牢记视图的显示离不开状态，也就是useState
   //控制弹框的打开和关闭
   const [dateVisible, setDateVisible] = useState(false)
 
   //控制事件选择
+  //点击确认切换时间显示
   const [date, setDate] = useState(()=>{
     return dayjs(new Date()).format('YYYY | MM')
   })
@@ -21,7 +34,7 @@ const Month = () => {
     const formatDate = dayjs(date).format('YYYY | MM')
     setDate(formatDate)
   }
-  
+
   return (
     <div className="monthlyBill">
       <NavBar className="nav" backArrow={false}>
