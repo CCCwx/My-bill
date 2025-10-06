@@ -6,6 +6,9 @@
   background-repeat: no-repeat;
   background-color: rgba(245, 245, 245, 0.9);
   color: var(--ka-text-color);
+  display: flex;
+  flex-direction: column;
+
 
   .nav {
     --adm-font-size-10: 16px;
@@ -17,7 +20,8 @@
   }
 
   .content {
-    height: 573px;
+    //height: 573px;
+    flex:1;
     padding: 0 10px;
     overflow-y: scroll;
     -ms-overflow-style: none; /* Internet Explorer 10+ */

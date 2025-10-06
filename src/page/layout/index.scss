@@ -3,6 +3,8 @@
     position: fixed;
     top: 0;
     bottom: 50px;
+    width: 100%;
+    height: auto; /* 或不设置高度，让 top/bottom 生效 */
   }
 
   .footer {
