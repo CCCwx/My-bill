@@ -8,6 +8,7 @@ import dayjs from 'dayjs'
 import { useSelector } from 'react-redux'
 import { useMemo } from 'react'
 import _ from 'lodash'
+
 const Month = () => {
   //按月做数据的分组
   //从redux拿到数据
@@ -26,12 +27,34 @@ const Month = () => {
   //控制事件选择
   //点击确认切换时间显示
   const [date, setDate] = useState(()=>{
-    return dayjs(new Date()).format('YYYY | MM')
+    return dayjs(new Date()).format('YYYY-MM')
   })
+
+  const [curMonthList,  setCurMontList] = useState([])
+
+  const monthResult = useMemo(()=>{
+    //支出 /收入 /结余
+    const pay = curMonthList.filter(item=>item.type === 'pay').reduce((a,c) => a+c.money, 0)
+    const income = curMonthList.filter(item => item.type === 'income').reduce((a,c) => a + c.money, 0)
+    return {
+      pay,
+      income,
+      total: pay + income
+    }
+  }, [curMonthList])
 
   const onConfirm = (date)=>{
     setDateVisible(false)
-    const formatDate = dayjs(date).format('YYYY | MM')
+    const formatDate = dayjs(date).format('YYYY-MM')
+
+    const listForMonth = monthGroup[formatDate];
+    //要检测是否为空数组
+    if (listForMonth && listForMonth.length > 0) {
+        setCurMontList(listForMonth);
+    } else {
+        // 如果 listForMonth 是 undefined 或者是一个空数组，都设置为 []
+        setCurMontList([]);
+    }
     setDate(formatDate)
   }
 
@@ -56,15 +79,15 @@ const Month = () => {
           {/* 统计区域 */}
           <div className='twoLineOverview'>
             <div className="item">
-              <span className="money">{100}</span>
+              <span className="money">{monthResult.pay.toFixed(2)}</span>
               <span className="type">支出</span>
             </div>
             <div className="item">
-              <span className="money">{200}</span>
+              <span className="money">{monthResult.income.toFixed(2)}</span>
               <span className="type">收入</span>
             </div>
             <div className="item">
-              <span className="money">{200}</span>
+              <span className="money">{monthResult.total.toFixed(2)}</span>
               <span className="type">结余</span>
             </div>
           </div>
