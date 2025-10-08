@@ -1,19 +1,22 @@
 //二级路由
 import { NavBar, DatePicker } from 'antd-mobile'
 import './index.scss'
-import { useEffect, useState } from 'react'
+import {useEffect, useState } from 'react'
 import classNames from 'classnames'
 //import { data } from 'react-router-dom'
 import dayjs from 'dayjs'
 import { useSelector } from 'react-redux'
 import { useMemo } from 'react'
 import _ from 'lodash'
+import DailyBill from './components/DayBill/DailyBillCompo'
+//import { map } from 'lodash'
 
 const Month = () => {
   //按月做数据的分组
   //从redux拿到数据
   const billList = useSelector(state => state.bill.billList)
   //useMemo对数据二次处理
+  //monthGroup是全部月份（即所有）的数据
   const monthGroup = useMemo(()=>{
     //return出去计算出去的数值
     return _.groupBy(billList, (item) => dayjs(item.date).format('YYYY-MM'))
@@ -67,6 +70,18 @@ const Month = () => {
     setDate(formatDate)
   }
 
+  //当前月按照日来做分组
+  const dailyGroup = useMemo(()=>{
+    const groupDate = _.groupBy(curMonthList, (item) => dayjs(item.date).format('YYYY-MM-DD'))
+    const key = Object.keys(groupDate)
+    return{
+      groupDate,
+      key
+    }
+  }, [curMonthList]) 
+
+
+
   return (
     <div className="monthlyBill">
       <NavBar className="nav" backArrow={false}>
@@ -115,6 +130,15 @@ const Month = () => {
             onClose={()=>setDateVisible(false)}
           />
         </div>
+        {/*单日列表统计
+        调用子组件
+        */}
+          
+        {
+          dailyGroup.key.map(key =>{
+            return <DailyBill key = {key} date = {key} billList={dailyGroup.groupDate[key]}/>
+          })
+        }
       </div>
     </div >
   )
