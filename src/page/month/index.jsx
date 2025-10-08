@@ -1,7 +1,7 @@
 //二级路由
 import { NavBar, DatePicker } from 'antd-mobile'
 import './index.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import classNames from 'classnames'
 //import { data } from 'react-router-dom'
 import dayjs from 'dayjs'
@@ -30,8 +30,8 @@ const Month = () => {
     return dayjs(new Date()).format('YYYY-MM')
   })
 
+  //这个是当前月份的数据
   const [curMonthList,  setCurMontList] = useState([])
-
   const monthResult = useMemo(()=>{
     //支出 /收入 /结余
     const pay = curMonthList.filter(item=>item.type === 'pay').reduce((a,c) => a+c.money, 0)
@@ -42,6 +42,15 @@ const Month = () => {
       total: pay + income
     }
   }, [curMonthList])
+
+  //初始化的时候把当前月的统计数据显示出来
+  useEffect(()=>{
+    const nowDate = dayjs().format('YYYY-MM') //不传参数就是获取当前时间
+    //看monthGroup是否为空
+    if (monthGroup[nowDate]){
+      setCurMontList(monthGroup[nowDate])
+    }
+  }, [monthGroup])
 
   const onConfirm = (date)=>{
     setDateVisible(false)
