@@ -93,10 +93,10 @@ const Month = () => {
           <div className="date" onClick = {() => setDateVisible(true)}>
             <span className="text">
               {/*这里加一个空字符串是要把date变成字符串对象，要不然无法正常渲染 */}
-              {date + ''} 月账单
+              {date + ''} Month Bill
             </span>
             {/*这个是箭头
-            思路：根据当前坦克狂打开的状态控制expand类名是否存在
+            思路：根据当前打开的状态控制expand类名是否存在
             */}
             <span className= {classNames('arrow', dateVisible && 'expand')}></span> {/*这是那个箭头 */}
           </div>
@@ -104,21 +104,21 @@ const Month = () => {
           <div className='twoLineOverview'>
             <div className="item">
               <span className="money">{monthResult.pay.toFixed(2)}</span>
-              <span className="type">支出</span>
+              <span className="type">Payment</span>
             </div>
             <div className="item">
               <span className="money">{monthResult.income.toFixed(2)}</span>
-              <span className="type">收入</span>
+              <span className="type">Income</span>
             </div>
             <div className="item">
               <span className="money">{monthResult.total.toFixed(2)}</span>
-              <span className="type">结余</span>
+              <span className="type">Balance</span>
             </div>
           </div>
           {/* 时间选择器 */}
           <DatePicker
             className="kaDate"
-            title="记账日期"
+            title="date"
             precision="month"
             //更改为我的state变量
             //visible变量为true就会打开
