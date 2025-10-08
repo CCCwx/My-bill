@@ -12,7 +12,7 @@ const DailyBill = ({date, billList}) => {
       return {
         pay,
         income,
-        total: pay + income
+        total: -pay + income
       }
     }, [billList])
 
@@ -28,15 +28,15 @@ const DailyBill = ({date, billList}) => {
         </div>
         <div className="oneLineOverview">
           <div className="pay">
-            <span className="type">支出</span>
+            <span className="type">Payment</span>
             <span className="money">{dailyResult.pay.toFixed(2)}</span>
           </div>
           <div className="income">
-            <span className="type">收入</span>
+            <span className="type">Income</span>
             <span className="money">{dailyResult.income.toFixed(2)}</span>
           </div>
           <div className="balance">
-            <span className="money">结余</span>
+            <span className="money">Balance</span>
             <span className="type">{dailyResult.total.toFixed(2)}</span>
           </div>
         </div>
