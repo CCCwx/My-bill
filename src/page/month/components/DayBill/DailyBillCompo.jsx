@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import './index.scss'
 import { useMemo } from 'react'
 import _ from 'lodash'
-
+import { useState } from 'react'
 const DailyBill = ({date, billList}) => {
   const dailyResult = useMemo(()=>{
       //const safeBillList = billList || []; 
@@ -16,12 +16,15 @@ const DailyBill = ({date, billList}) => {
       }
     }, [billList])
 
+  const [visible, setVisible] = useState(false)
+
   return (
     <div className={classNames('dailyBill')}>
       <div className="header">
         <div className="dateIcon">
           <span className="date">{date}</span>
-          <span className={classNames('arrow')}></span>
+          {/*expand */}
+          <span className={classNames('arrow', visible && 'expand')} onClick = {() => { setVisible(!visible) }}></span>
         </div>
         <div className="oneLineOverview">
           <div className="pay">
@@ -39,7 +42,7 @@ const DailyBill = ({date, billList}) => {
         </div>
       </div>
       {/*单日列表组件 */}
-      <div className="billList">
+      <div className="billList" style={{display: visible? 'block':'none'}}>
         {billList.map(item => {
           return (
             <div className="bill" key={item.id}>
