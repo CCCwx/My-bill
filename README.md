@@ -9,7 +9,7 @@
 *在这里插入你的月度账单页面截图*
 
 **记一笔页面**
-![记一笔页面截图](https://i.imgur.com/your-new-record-image.png)
+![记一笔页面截图](https://github.com/CCCwx/My-bill/blob/main/record.png)
 *在这里插入你的记一笔页面截图*
 
 ## 技术栈
@@ -38,29 +38,29 @@
     * classnames (CSS 类名管理)
 
 ## 项目结构
-/
-├── server/
-│   └── data.json         # json-server 的模拟数据库文件
-├── src/
-│   ├── assets/           # 静态资源 (SVG等)
-│   ├── components/       # 可复用的React组件
-│   │   └── index.jsx     # Icon 组件
-│   ├── page/             # 页面级组件
-│   │   ├── layout/       # 主布局组件 (包含底部导航栏)
-│   │   ├── month/        # 月度账单页面
-│   │   ├── new/          # 记一笔 (新建账单) 页面
-│   │   └── year/         # 年度账单页面 (占位)
-│   ├── router/           # 路由配置
-│   │   └── index.jsx
-│   ├── store/            # Redux 状态管理
-│   │   ├── index.jsx
-│   │   └── modules/
-│   │       └── billstore.jsx # 账单相关的 Redux Slice
-│   ├── App.jsx           # 应用根组件 (当前未使用)
-│   ├── main.jsx          # 应用入口文件
-│   └── index.css         # 全局样式
-├── vite.config.js        # Vite 配置文件
-└── package.json          # 项目依赖和脚本配置
+-   `/` (项目根目录)
+    -   `server/`
+        -   `data.json`
+    -   `src/`
+        -   `assets/`
+        -   `components/`
+            -   `index.jsx`
+        -   `page/`
+            -   `layout/`
+            -   `month/`
+            -   `new/`
+            -   `year/`
+        -   `router/`
+            -   `index.jsx`
+        -   `store/`
+            -   `index.jsx`
+            -   `modules/`
+                -   `billstore.jsx`
+        -   `App.jsx`
+        -   `main.jsx`
+        -   `index.css`
+    -   `vite.config.js`
+    -   `package.json`
 
 ## 功能特性
 
