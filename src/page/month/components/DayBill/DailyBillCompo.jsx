@@ -3,6 +3,7 @@ import './index.scss'
 import { useMemo } from 'react'
 import _ from 'lodash'
 import { useState } from 'react'
+import Icon from '@/component'
 const DailyBill = ({date, billList}) => {
   const dailyResult = useMemo(()=>{
       //const safeBillList = billList || []; 
@@ -46,6 +47,8 @@ const DailyBill = ({date, billList}) => {
         {billList.map(item => {
           return (
             <div className="bill" key={item.id}>
+              {/*渲染图标 */}
+              <Icon type = {item.useFor}/>
               <div className="detail">
                 <div className="billType">{item.useFor}</div>
               </div>
