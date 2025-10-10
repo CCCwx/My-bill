@@ -5,7 +5,7 @@
 ## 功能截图
 
 **月度账单页面**
-![月度账单页面截图](https://i.imgur.com/your-monthly-bill-image.png)
+![月度账单页面截图]([https://i.imgur.com/your-monthly-bill-image.png](https://github.com/CCCwx/My-bill/blob/main/month_bill.png))
 *在这里插入你的月度账单页面截图*
 
 **记一笔页面**
