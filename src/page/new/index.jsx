@@ -89,7 +89,7 @@ const New = () => {
     const data = {
       type: billtype,
       money: billtype === 'pay' ? -money:+money, //看billtype
-      date: new Date(),
+      date: new Date().toISOString(),
       useFor: useFor
     }
     //console.log(data)
