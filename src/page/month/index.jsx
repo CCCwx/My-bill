@@ -82,10 +82,10 @@ const Month = () => {
 
 
 
-  return (
+  return (  
     <div className="monthlyBill">
       <NavBar className="nav" backArrow={false}>
-        月度收支
+        Monthly Bill
       </NavBar>
       <div className="content">
         <div className="header">

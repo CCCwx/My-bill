@@ -17,17 +17,17 @@ const tabs = [
   {
     //这里我们设置month为一级路由，因此key为/
     key: '/',
-    title: '月度账单',
+    title: 'Monthly Bill',
     icon: <BillOutline />,
   },
   {
     key: '/new',
-    title: '记账',
+    title: 'Accounting',
     icon: <AddCircleOutline />,
   },
   {
     key: '/year',
-    title: '年度账单',
+    title: 'Annul bill ',
     icon: <CalculatorOutline />,
   },
 ];
