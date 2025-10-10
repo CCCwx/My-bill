@@ -3,7 +3,7 @@ import './index.scss'
 import { useMemo } from 'react'
 import _ from 'lodash'
 import { useState } from 'react'
-import Icon from '@/component'
+import Icon from '@/components'
 const DailyBill = ({date, billList}) => {
   const dailyResult = useMemo(()=>{
       //const safeBillList = billList || []; 
