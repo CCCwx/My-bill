@@ -5,11 +5,11 @@ This is a personal accounting application built with the React technology stack.
 ## Feature Screenshots
 
 **Monthly Bill Page**
-![月度账单页面截图](https://github.com/CCCwx/My-bill/blob/main/month_bill.png)
+<img src="https://github.com/CCCwx/My-bill/blob/main/month_bill.png" alt="月度账单页面截图" width="50%">
 *在这里插入你的月度账单页面截图*
 
 **Record New Transaction Page**
-![记一笔页面截图](https://github.com/CCCwx/My-bill/blob/main/record.png)
+<img src= "https://github.com/CCCwx/My-bill/blob/main/record.png" alt="月度账单页面截图" width="50%" >
 *在这里插入你的记一笔页面截图*
 
 ## Technology Stack
